@@ -1,5 +1,5 @@
 //******** Mrakomer ******************************************
-#define VERSION "2.1"
+#define VERSION "2.1"  // Special version for the BART
 #define ID "$Id$"
 //************************************************************
 
