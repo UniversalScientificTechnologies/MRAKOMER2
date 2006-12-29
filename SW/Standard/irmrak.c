@@ -1,6 +1,6 @@
 //******** Mrakomer **********
 #define VERSION "2.0"
-#define ID "$Id: irmrak.c 124 2006-10-24 15:47:15Z kakl $"
+#define ID "$Id$"
 //****************************
 
 #include "irmrak.h"
