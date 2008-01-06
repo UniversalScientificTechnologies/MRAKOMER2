@@ -1,0 +1,13 @@
+﻿//
+// Toto je popisný soubor pro popis obsahu adresáře (příklad)
+//
+
+[InfoShortDescription.en]
+
+[InfoShortDescription.cs]
+  
+[InfoLongDescription.en]
+
+[InfoLongDescription.cs]
+
+[End]
