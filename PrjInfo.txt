@@ -1,13 +1,18 @@
-﻿//
-// Toto je popisný soubor pro popis obsahu adresáře (příklad)
+﻿
+//
+// This is a project description file.
 //
 
 [InfoShortDescription.en]
+Mrakomer (Claudsmeter) 
 
 [InfoShortDescription.cs]
+Mrakoměr
   
 [InfoLongDescription.en]
+Cloudsmeter is a robotics device for measurement the clouds coverage. This device is especially constructed for protection of robotics telescopes against rain and snow.
 
 [InfoLongDescription.cs]
+Robotický přístroj pro detekci oblačnosti. Byl navržen pro detekci srážek jako součást robotických dalekohledů.
 
 [End]
