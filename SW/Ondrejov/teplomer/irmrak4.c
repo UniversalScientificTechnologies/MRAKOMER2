@@ -1,6 +1,6 @@
 /**** IR Mrakomer - special version for BART ****/
 #define VERSION "2.2"
-#define ID "$Id: irmrak4.c 1306 2009-01-17 12:25:40Z kakl $"
+#define ID "$Id$"
 
 #include "irmrak4.h"
 

@@ -1,6 +1,6 @@
 //******** Mrakomer2 - stepper motor control *****************
 #define VERSION "3.0"  // Special version for BART
-#define ID "$Id: irmrak.c 420 2006-12-29 21:43:11Z kakl $"
+#define ID "$Id$"
 //************************************************************
 
 #include "irmrak.h"
