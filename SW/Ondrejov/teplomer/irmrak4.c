@@ -42,7 +42,7 @@ void welcome(void)               // Welcome message
    printf("# 0..9 - Single measure at given angle.\n\r");
    printf("# m    - Measure at three space points.\n\r");
    printf("#\n\r");
-   printf("$<Angle> <Ambient Temperature> <Space Temperature> ... <H> <Heating>");
+   printf("#<Angle> <Ambient Temperature> <Space Temperature> ... <H> <Heating>");
    printf("\n\r\n\r");
 //---WDT
    restart_wdt();
@@ -138,7 +138,7 @@ void main()
                break;                  
          }
          printf("%c %Ld %Ld ", ch, ta, to);
-         if (('A'!=ch)&&('B'!=ch)&&('C'!=ch)&&('S'!=ch)) printf("H %u\r\n", heat);  // Vzdycky se konci natocenim na Ground
+         if (('A'!=ch)&&('B'!=ch)&&('C'!=ch)&&('S'!=ch)) printf("T %u\r\n", heat);  // Vzdycky se konci natocenim na Ground
       }
       delay_ms(1);
       if (timer>0) {timer--;} else {timer=1000;}   
