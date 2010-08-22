@@ -48,7 +48,7 @@ void dolu()
       {
          output_B(0);   // vypnuti motoru
          printf("E");   // Hlasime chybu
-         err=0;
+         reset_cpu();
       }
    };
    delay_ms(500);    // cas na ustaleni trubky
@@ -58,9 +58,9 @@ void dolu()
 // --- Najeti na vychozi polohu dole ---
 void nula()
 {
-   port=0b10100000;  // vychozi nastaveni fazi pro rizeni motoru
+   port=0b10010000;  // vychozi nastaveni fazi pro rizeni motoru
    output_B(port);
-   j=0;              // smer dolu
+   j=1;              // smer dolu
    delay_ms(500);
 }
 
@@ -68,26 +68,25 @@ void nula()
 //------------------------------------------------
 void main()
 {
-   setup_oscillator(OSC_8MHZ|OSC_INTRC);     // 8 MHz interni RC oscilator
-
    setup_adc_ports(NO_ANALOGS|VSS_VDD);
    setup_adc(ADC_OFF);
-   setup_spi(FALSE);
-   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1);  
+   setup_spi(SPI_SS_DISABLED);
+   setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1);
    setup_timer_1(T1_DISABLED);
+   setup_timer_2(T2_DISABLED,0,1);
    setup_ccp1(CCP_OFF);
-   setup_comparator(NC_NC_NC_NC);  
-   setup_vref(FALSE); 
+   setup_comparator(NC_NC_NC_NC);
+   setup_vref(FALSE);
+   setup_oscillator(OSC_8MHZ|OSC_INTRC);
 
    output_B(0);               // vypnuti motoru a topeni
    set_tris_B(0b00000111);    // faze a topeni jako vystupy  
 
-
+   nula();
+   dolu();           // otoc trubku do vychozi pozice dolu
+   
    while(true)
    {
-      nula();
-      dolu();           // otoc trubku do vychozi pozice dolu
-
       CREN=0; CREN=1;               // Reinitialise USART
 
       while(!kbhit())
@@ -107,13 +106,13 @@ void main()
 
          krok(18);
          printf("A");   // mereni teploty 45° nad obzorem
-         delay_ms(200);
+         delay_ms(300);
          krok(7);
          printf("B");   // mereni teploty v zenitu
-         delay_ms(200);
+         delay_ms(300);
          krok(7);
          printf("C");  // mereni teploty 45° nad obzorem na druhou stranu
-         delay_ms(200);
+         delay_ms(300);
 
          j++;     // reverz
          dolu();
@@ -124,11 +123,11 @@ void main()
       
       if ('i'==uhel) {printf("I"); continue;} // Predani prikazu pro Info
       if ('h'==uhel) {printf("H"); continue;} // Predani prikazu pro Topeni  
-      if ('c'==uhel) {printf("C"); continue;} // Predani prikazu pro vypnuti topeni  
+      if ('f'==uhel) {printf("F"); continue;} // Predani prikazu pro vypnuti topeni  
       if ('x'==uhel)                          // Zjisteni verze FW
       {
          printf("Mrakomer - Motor  V%s (C) 2006 KAKL\n\r", VER);
-         printf("%s\n\r", REV);
+         printf("%s\r\n", REV);
       }
 
       if ((uhel>='0') && (uhel<='@')) // mereni v pozadovanem uhlu [0..;]=(0..11)
@@ -147,7 +146,7 @@ void main()
          krok(2);
       };
       printf("S");
-      delay_ms(200);
+      delay_ms(300);
 
       j++;     // reverz
       dolu();

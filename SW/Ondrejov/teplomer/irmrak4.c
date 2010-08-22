@@ -13,8 +13,8 @@
 
 #CASE    // Case sensitive compiler
 
-#define  MAXHEAT     30       // Doba po kterou se topi v [s]
-#define  HEATING     PIN_B3   // Heating for defrosting
+#define  MAXHEAT     20       // Doba po kterou se topi v [s]
+#define  HEATING     PIN_A2   // Heating for defrosting
 
 char  VER[4]=VERSION;   // Buffer for concatenate of a version string
 
@@ -33,16 +33,16 @@ void welcome(void)               // Welcome message
    char  REV[50]=ID;       // Buffer for concatenate of a version string
 
    if (REV[strlen(REV)-1]=='$') REV[strlen(REV)-1]=0;
-   printf("\n\r\n\r# Mrakomer %s (C) 2007 KAKL\n\r",VER);   // Welcome message
+   printf("\n\r\n\r# Mrakomer %s (C) 2007-2010 KAKL\n\r",VER);   // Welcome message
    printf("#%s\n\r",&REV[4]);
    printf("#\n\r");
-   printf("# h    - Switch On Heating for 30s.\n\r");
+   printf("# h    - Switch On Heating for 20s.\n\r");
    printf("# f    - Freezing. Switch Off Heating.\n\r");
    printf("# i    - Print this Information.\n\r");
    printf("# 0..9 - Single measure at given angle.\n\r");
    printf("# m    - Measure at three space points.\n\r");
    printf("#\n\r");
-   printf("$<Angle> <Ambient Temperature> <Space Temperature> ...");
+   printf("$<Angle> <Ambient Temperature> <Space Temperature> ... <H> <Heating>");
    printf("\n\r\n\r");
 //---WDT
    restart_wdt();

@@ -12,7 +12,7 @@
 #define TBUF      20
 
 // SMBus control signals
-#define SCL    PIN_B0
+#define SCL    PIN_B4
 #define SDA    PIN_B1
 
 #define mSDA_HIGH()   output_float(SDA);   // SDA float
