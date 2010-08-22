@@ -105,14 +105,17 @@ void main()
          j++;    // reverz, nahoru
 
          krok(18);
+         delay_ms(400);
          printf("A");   // mereni teploty 45° nad obzorem
-         delay_ms(300);
-         krok(7);
+         delay_ms(50);
+         krok(6);
+         delay_ms(400);
          printf("B");   // mereni teploty v zenitu
-         delay_ms(300);
-         krok(7);
+         delay_ms(50);
+         krok(6);
+         delay_ms(400);
          printf("C");  // mereni teploty 45° nad obzorem na druhou stranu
-         delay_ms(300);
+         delay_ms(50);
 
          j++;     // reverz
          dolu();
@@ -145,8 +148,9 @@ void main()
       {
          krok(2);
       };
+      delay_ms(400);
       printf("S");
-      delay_ms(300);
+      delay_ms(50);
 
       j++;     // reverz
       dolu();
