@@ -4,7 +4,7 @@
 //
 
 [InfoShortDescription.en]
-Mrakomer (Claudsmeter) 
+Mrakomer (Clouds sensor) 
 
 [InfoShortDescription.cs]
 Mrakoměr
